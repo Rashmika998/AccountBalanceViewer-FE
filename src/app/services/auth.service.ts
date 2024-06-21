@@ -6,8 +6,10 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class AuthService {
-  private loginUrl = 'https://localhost:7293/api/User/login';
-  private logoutUrl = 'https://localhost:7293/api/User/logout';
+  private loginUrl =
+    'https://accountbalanceviewer.azurewebsites.net/api/User/login';
+  private logoutUrl =
+    'https://accountbalanceviewer.azurewebsites.net/api/User/logout';
 
   constructor(private http: HttpClient) {}
 

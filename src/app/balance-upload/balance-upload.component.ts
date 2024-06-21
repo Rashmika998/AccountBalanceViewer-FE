@@ -13,6 +13,7 @@ export class BalanceUploadComponent implements OnInit {
   selectedFile: File | null = null;
   errorMessage: string = '';
   successMessage: string = '';
+  isLoading: boolean = false;
 
   constructor(
     private balanceService: BalanceService,
@@ -33,6 +34,7 @@ export class BalanceUploadComponent implements OnInit {
   }
 
   onFileChange(event: any): void {
+    this.isLoading = true;
     const file = event.target.files[0];
     if (file) {
       const fileExtension = file.name.split('.').pop()?.toLowerCase();
@@ -49,9 +51,11 @@ export class BalanceUploadComponent implements OnInit {
         this.selectedFile = null;
       }
     }
+    this.isLoading = false;
   }
 
   uploadFile(): void {
+    this.isLoading = true;
     if (this.authService.isTokenExpired()) {
       this.router.navigate(['/user-login']);
     }
@@ -62,8 +66,7 @@ export class BalanceUploadComponent implements OnInit {
         ?.toLowerCase();
       if (
         fileExtension === 'xlsx' ||
-        fileExtension === 'xls' ||
-        fileExtension === 'csv'
+        fileExtension === 'xls' 
       ) {
         this.readExcelFile(this.selectedFile);
       } else if (fileExtension === 'txt') {
@@ -130,10 +133,12 @@ export class BalanceUploadComponent implements OnInit {
 
     this.balanceService.uploadBalance(parsedData).subscribe({
       next: () => {
+        this.isLoading = false;
         this.successMessage = 'File uploaded and processed successfully!';
         this.router.navigate(['/account-balance']);
       },
       error: (error) => {
+        this.isLoading = false;
         console.error('Error uploading balance:', error);
         this.errorMessage = 'An error occurred while uploading the balance.';
       },

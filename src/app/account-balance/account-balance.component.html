@@ -32,13 +32,14 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>{{ balanceData.rnD | currency }}</td>
-                        <td>{{ balanceData.canteen | currency }}</td>
-                        <td>{{ balanceData.ceoCarExpenses | currency }}</td>
-                        <td>{{ balanceData.marketing | currency }}</td>
-                        <td>{{ balanceData.parkingFines | currency }}</td>
+                        <td>{{ balanceData.rnD | customCurrency }}</td>
+                        <td>{{ balanceData.canteen | customCurrency }}</td>
+                        <td>{{ balanceData.ceoCarExpenses | customCurrency }}</td>
+                        <td>{{ balanceData.marketing | customCurrency }}</td>
+                        <td>{{ balanceData.parkingFines | customCurrency }}</td>
                     </tr>
                 </tbody>
+
             </table>
         </div>
     </div>

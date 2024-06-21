@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class AdminLoginComponent {
   loginForm: FormGroup;
   errorMessage: string = '';
+  isLoading: boolean = false;
 
   constructor(
     private fb: FormBuilder,
@@ -26,19 +27,24 @@ export class AdminLoginComponent {
 
   onSubmit(): void {
     if (this.loginForm.valid) {
+      this.errorMessage = '';
+      this.isLoading = true;
       const { username, password, userRole } = this.loginForm.value;
       this.authService.login(username, password, userRole).subscribe({
         next: (response) => {
           this.errorMessage = '';
+          this.isLoading = false;
           const { token, expiration, userRole } = response;
           this.authService.saveAuthData(token, expiration, userRole);
           this.router.navigate(['/account-balance']);
         },
         error: (error) => {
+          this.isLoading = false;
           this.errorMessage = error.error.message;
         },
       });
     } else {
+      this.isLoading = false;
       this.errorMessage = 'Please enter valid email and password.';
     }
   }

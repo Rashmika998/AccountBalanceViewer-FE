@@ -10,6 +10,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AccountBalanceComponent } from './account-balance/account-balance.component';
 import { BalanceUploadComponent } from './balance-upload/balance-upload.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
+import { CustomCurrencyPipe } from './custom-currency.pipe';
 
 @NgModule({
   declarations: [
@@ -17,15 +18,16 @@ import { AdminLoginComponent } from './admin-login/admin-login.component';
     LoginComponent,
     AccountBalanceComponent,
     BalanceUploadComponent,
-    AdminLoginComponent
+    AdminLoginComponent,
+    CustomCurrencyPipe,
   ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [AuthService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

@@ -6,8 +6,10 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class BalanceService {
-  private balanceUrl = 'https://localhost:7293/api/Balance';
-  private uploadBalanceUrl = 'https://localhost:7293/api/AccountBalance';
+  private balanceUrl =
+    'https://accountbalanceviewer.azurewebsites.net/api/Balance';
+  private uploadBalanceUrl =
+    'https://accountbalanceviewer.azurewebsites.net/api/AccountBalance';
 
   constructor(private http: HttpClient) {}
 
