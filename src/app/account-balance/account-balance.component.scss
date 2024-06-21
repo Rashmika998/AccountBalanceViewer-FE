@@ -1,0 +1,29 @@
+h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .table {
+    margin-top: 20px;
+  }
+  
+  .table th, .table td {
+    text-align: center;
+    vertical-align: middle;
+  }
+  
+  .table thead th {
+    background-color: #f8f9fa;
+  }
+  
+  .table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  .logout-link {
+    cursor: pointer;
+}
+
+.navbar{
+    display: flex;
+}

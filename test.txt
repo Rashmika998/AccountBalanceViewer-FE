@@ -1,0 +1,5 @@
+R&D	50.63
+Canteen	20,000
+CEO’s car	15,000
+Marketing	-900
+Parking fines	12000
