@@ -1,15 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { apiBasePath } from 'src/utils/constants';
 
 @Injectable({
   providedIn: 'root',
 })
 export class BalanceService {
-  private balanceUrl =
-    'https://accountbalanceviewer.azurewebsites.net/api/Balance';
-  private uploadBalanceUrl =
-    'https://accountbalanceviewer.azurewebsites.net/api/AccountBalance';
+  private balanceUrl = `${apiBasePath}/Balance`;
+  private uploadBalanceUrl = `${apiBasePath}/AccountBalance`;
 
   constructor(private http: HttpClient) {}
 

@@ -1,15 +1,14 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { apiBasePath } from 'src/utils/constants';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  private loginUrl =
-    'https://accountbalanceviewer.azurewebsites.net/api/User/login';
-  private logoutUrl =
-    'https://accountbalanceviewer.azurewebsites.net/api/User/logout';
+  private loginUrl = `${apiBasePath}/User/login`;
+  private logoutUrl = `${apiBasePath}/User/logout`;
 
   constructor(private http: HttpClient) {}
 
