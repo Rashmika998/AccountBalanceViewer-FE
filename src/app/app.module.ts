@@ -11,6 +11,7 @@ import { AccountBalanceComponent } from './account-balance/account-balance.compo
 import { BalanceUploadComponent } from './balance-upload/balance-upload.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { CustomCurrencyPipe } from '../utils/custom-currency.pipe';
+import { BalanceService } from './services/balance.service';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import { CustomCurrencyPipe } from '../utils/custom-currency.pipe';
     HttpClientModule,
     AppRoutingModule,
   ],
-  providers: [AuthService],
+  providers: [AuthService, BalanceService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
