@@ -19,11 +19,11 @@ export class AccountBalanceComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.fetchBalance();
     if (this.authService.isTokenExpired()) {
       this.authService.clearAuthData();
       this.router.navigate(['/user-login']);
     }
+    this.fetchBalance();
   }
 
   fetchBalance(): void {

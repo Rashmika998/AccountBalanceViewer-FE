@@ -41,14 +41,16 @@ export class AuthService {
     return sessionStorage.getItem('userRole');
   }
 
-  getTokenExpiration(): Date | null {
-    const expiration = this.getAuthToken();
-    return expiration ? new Date(expiration) : null;
+  getExpirationDate(): string | null {
+    return sessionStorage.getItem('expiration');
   }
 
   isTokenExpired(): boolean {
-    const expiration = this.getTokenExpiration();
-    return expiration ? new Date() > expiration : true;
+    const expirationDate = this.getExpirationDate();
+    const expirationDates = new Date(expirationDate + ' GMT');
+    return expirationDate
+      ? new Date().getTime() > expirationDates.getTime()
+      : true;
   }
 
   isLoggedIn(): boolean {
